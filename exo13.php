@@ -25,89 +25,11 @@
     <h2>Résultat</h2>
 
 <?php
-class Voiture {
-    private $marque;
-    private $modele;
-    private $nbPortes; // nbportes
-    private $vitesseActuelle = 0;
-    private $etat = 0;
+include 'Voiture.php';
+$v1 = new Voiture("Peugeot", "408", 5);
+$v2 = new Voiture("Citroën", "C4", 3);
 
-    public function getMarque() {
-        return $this->marque;
-    }
-
-    public function setMarque(string $marque) {
-        $this->marque = $marque;
-    }
-
-    public function getModele() {
-        return $this->modele;
-    }
-
-    public function setModele(string $modele) {
-        $this->modele = $modele;
-    }
-
-    public function getNbPortes() {
-        return $this->nbPortes;
-    }
-
-    public function setNbPortes(int $nbPortes) {
-        $this->nbPortes = $nbPortes;
-    }
-
-    public function getVitesseActuelle() {
-        return $this->vitesseActuelle;
-    }
-
-    public function setVitesseActuelle(int $vitesseActuelle) {
-        $this->vitesseActuelle = $vitesseActuelle;
-    }
-
-    public function getEtat() {
-        return $this->etat;
-    }
-
-    public function demarrer() {
-        ($etat == 1) ? "La voiture est déjà démarrée." :
-        $this->etat = 1;
-        return "Le véhicule $marque $modèle démarre.";
-    }
-
-    public function accelerer(int $vitesse) {
-        if ($etat == 1 && $vitesseActuelle <= $vitesse) {
-        $this->vitesseActuelle = $vitesseActuelle + $vitesse;
-        }
-        else return "Pour accélerer, il faut démarrer le véhicule $marque $modele ou augmenter la vitesse !";
-    }
-
-    public function stopper() {
-        ($etat == 0) ? "La voiture est déjà stoppée." :
-        $this->etat = 0;
-        $this->vitesseActuelle = 0;
-        return "Le véhicule $marque $modèle est stoppé.";
-    }
-
-    public function ralentir(int $vitesse) {
-        if ($etat == 1 && $vitesseActuelle >= $vitesse) {
-            $this->vitesseActuelle = $vitesseActuelle - $vitesse;
-        }
-        else return "Pour ralentir, il faut que le véhicule $marque $modele soit démarré ou réduire sa vitesse.";
-    }
-
-    public function getStats($voiture) {
-        return "Infos $this<br>Nom et modèle du véhicule : $marque $modele<br>Nombre de porte : $nbPortes<br>Le véhicule $marque est $etat<br>Sa vitesse actuelle est de : $vitesseActuelle";
-    }
-}
-$v1 = new Voiture();
-$v2 = new Voiture();
-$v1->setMarque("Peugeot");
-$v1->setModele("408");
-$v1->setNbPortes(5);
-$v2->setMarque("Citroën");
-$v2->setModele("C4");
-$v2->setNbPortes(3);
-echo getStats($v1);
+echo "<br>".$v1->Stats();
 
 ?>
     

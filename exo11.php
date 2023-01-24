@@ -17,12 +17,18 @@
 
 <?php
 
-function formaterDateFr($type = "") {
-    $date = new DateTime($type);
-    $date->date_format("l d F Y");
-    return $date;
-}
-echo formaterDateFr("2023-01-20");
+    function formaterDateFr($date) {
+        $form = new IntlDateFormatter(
+            'fr_FR', 
+            IntlDateFormatter::FULL, IntlDateFormatter::NONE, 
+            'Europe/Paris', IntlDateFormatter::GREGORIAN,
+            'EEEE d LLLL Y');
+        return $form->format($date);
+    }
+
+$test = new DateTime ("2018-02-23");
+echo formaterDateFr($test);
+
 ?>
     
 </body>
